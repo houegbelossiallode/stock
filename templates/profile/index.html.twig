@@ -1,0 +1,34 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}profile{% endblock %}
+{% block pagetitle %}Mon profile{% endblock %}
+{% block body %}
+
+{% for profile in profiles %}
+
+                          <div class="row">
+                            <div class="col-md">
+
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{profile.nom}}</h6>
+                                    <h6 class="card-title">{{profile.email}}</h6>
+                                
+                                        <a href="{{ path('profile.edit', {id: profile.id})}}" class="btn btn-primary">MODIFIER</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}

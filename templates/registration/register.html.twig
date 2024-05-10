@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+<div class="authentication-wrapper authentication-2 ui-bg-cover ui-bg-overlay-container px-4" style="background-image: url('assets/img/bg/21.jpg');">
+<div class="ui-bg-overlay bg-dark opacity-25"></div>
+
+    <div class="authentication-inner py-5">
+
+    <div class="card">
+        <div class="p-4 p-sm-5">
+            <!-- [ Logo ] Start -->
+            <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+                <div class="ui-w-60">
+                    <div class="w-100 position-relative">
+                        <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+
+<h5 class="text-center text-muted font-weight-normal mb-4">Create an Account</h5>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_errors(registrationForm.email) }}
+        {{ form_row(registrationForm.nom) }}
+        
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.captcha) }}
+        {{ form_errors(registrationForm.captcha) }}
+
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <div class="card-footer py-3 px-4 px-sm-5">
+            <div class="text-center text-muted">
+                Avez-vous déjà un compte
+                <a href="{{path('app_login')}}">Se connecter</a>
+            </div>
+        </div>
+    {{ form_end(registrationForm) }}
+
+
+   
+
+
+    
+
+
+{% endblock %}

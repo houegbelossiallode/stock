@@ -1,0 +1,28 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}profile{% endblock %}
+{% block pagetitle %}Modification du profile{% endblock %}
+{% block body %}
+
+
+    <div class="card">
+        <div class="p-4 p-sm-5">
+            <!-- [ Logo ] Start -->
+            
+
+
+
+<form class="form-horizontal" method="post" action="{{ path('profile.edit', { 'id': user }) }}">
+
+{{ form_start(form) }}
+<div class="row">
+
+<div class="col-6">{{ form_row(form.nom) }}</div>
+<div class="col-6"> {{ form_row(form.email) }} </div>
+</div>
+
+{{ form_rest(form) }}
+<button type="submit" class="btn btn-success">MODIFIER</button>
+</form>
+
+{% endblock %}

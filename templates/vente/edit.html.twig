@@ -1,0 +1,32 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Enregister une vente{% endblock %}
+
+{% block pagetitle %}Nouvelle Vente{% endblock %}
+
+{% block body %}
+
+
+<div class="card">
+<div class="p-4 p-sm-5">
+
+{{ form_start(form) }}
+<div class="row">
+
+<div class="col-6">{{ form_row(form.client,{'attr': {'class': 'form-control'}}) }}</div>
+<div class="col-6"> {{ form_row(form.article,{'attr': {'class': 'form-control'}}) }} </div>
+
+</div>
+
+<div class="row">
+
+<div class="col-12">{{ form_row(form.quantity) }}</div>
+
+
+</div>
+
+{{ form_end(form) }}
+
+<a href="{{path('app_vente')}}">Listes des ventes</a>
+
+{% endblock %}

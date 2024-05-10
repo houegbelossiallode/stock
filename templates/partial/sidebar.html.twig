@@ -1,0 +1,134 @@
+  <!-- [ Layout wrapper ] Start -->
+  <div class="layout-wrapper layout-2">
+  <div class="layout-inner">
+      <!-- [ Layout sidenav ] Start -->
+      <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-dark">
+          <!-- Brand demo (see assets/css/demo/demo.css) -->
+          <div class="app-brand demo">
+              <span class="app-brand-logo demo">
+                  
+              </span>
+              <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Gestion de stock</a>
+              <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+                  <i class="ion ion-md-menu align-middle"></i>
+              </a>
+          </div>
+          <div class="sidenav-divider mt-0"></div>
+
+          <!-- Links -->
+          <ul class="sidenav-inner py-1">
+
+              <!-- Dashboards -->
+              <li class="sidenav-item active ">
+                  <a href="{{path('app_dashboard')}}" class="sidenav-link ">
+                      <i class="sidenav-icon feather icon-home"></i>
+                      <div>Dashboard</div>
+                      <div class="pl-1 ml-auto">
+                          
+                      </div>
+                  </a>
+                  
+
+              <!-- Forms & Tables -->
+              <li class="sidenav-divider mb-1"></li>
+              <li class="sidenav-header small font-weight-semibold">Gestion</li>
+              <li class="sidenav-item">
+                  <a href="javascript:" class="sidenav-link sidenav-toggle">
+                      <i class="sidenav-icon feather icon-clipboard"></i>
+                      <div>Articles</div>
+                  </a>
+                  <ul class="sidenav-menu">
+                      <li class="sidenav-item">
+                          <a href="{{path('add_article')}}" class="sidenav-link">
+                              <div>Ajouter article</div>
+                          </a>
+                      </li>
+                      
+                      <li class="sidenav-item">
+                          <a href="{{path('app_search')}}" class="sidenav-link">
+                              <div>Rechercher article</div>
+                          </a>
+                      </li>
+                      
+                  </ul>
+              </li>
+              <li class="sidenav-item">
+                  <a href="javascript:" class="sidenav-link sidenav-toggle">
+                      <i class="sidenav-icon feather icon-user"></i>
+                      <div>Client</div>
+                  </a>
+                  <ul class="sidenav-menu">
+                      <li class="sidenav-item">
+                          <a href="{{path('app_client')}}" class="sidenav-link">
+                              <div>Ajouter client</div>
+                          </a>
+                      </li>
+                      <li class="sidenav-item">
+                          <a href="{{path('app_search_client')}}" class="sidenav-link">
+                              <div>Rechercher client</div>
+                          </a>
+                      </li>
+                      
+                      
+                  </ul>
+              </li>
+
+              <li class="sidenav-item">
+              <a href="javascript:" class="sidenav-link sidenav-toggle">
+                  <i class="sidenav-icon feather icon-user"></i>
+                  <div>Vente</div>
+              </a>
+              <ul class="sidenav-menu">
+                  <li class="sidenav-item">
+                      <a href="{{path('add_vente')}}" class="sidenav-link">
+                          <div>Créer une vente</div>
+                      </a>
+                  </li>
+                  <li class="sidenav-item">
+                      <a href="tables_datatables.html" class="sidenav-link">
+                          <div>Rechercher vente</div>
+                      </a>
+                  </li>
+                  
+
+              </ul>
+          </li>
+          <li class="sidenav-item">
+          <a href="javascript:" class="sidenav-link sidenav-toggle">
+              <i class="sidenav-icon feather icon-user"></i>
+              <div>Achat</div>
+          </a>
+          <ul class="sidenav-menu">
+              <li class="sidenav-item">
+                  <a href="{{path('add_achat')}}" class="sidenav-link">
+                      <div>Effectué un achat</div>
+                  </a>
+              </li>
+              <li class="sidenav-item">
+                  <a href="{{path('add_fournisseur')}}" class="sidenav-link">
+                      <div>Ajouter un fournisseur</div>
+                  </a>
+              </li>
+              
+          </ul>
+          <a href="{{path('app_quantite_ajoute_index')}}" class="sidenav-link">
+          <div>Quantité Ajoutée</div>
+          </a>
+
+          <a href="" class="sidenav-link">
+        <div>Générer mon CV</div>
+        </a>
+
+      </div>
+      
+      <div class="layout-container">
+                <!-- [ Layout navbar ( Header ) ] Start -->
+                <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-white container-p-x" id="layout-navbar">
+
+                    <!-- Brand demo (see assets/css/demo/demo.css) -->
+                    <a href="index.html" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
+                        <span class="app-brand-logo demo">
+                            <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid">
+                        </span>
+                        <span class="app-brand-text demo font-weight-normal ml-2">Bhumlu</span>
+                    </a>

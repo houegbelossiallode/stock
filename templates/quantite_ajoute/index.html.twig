@@ -1,0 +1,47 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Quantité Ajoutée {% endblock %}
+{% block pagetitle %}Quantité Ajoutée{% endblock %}
+{% block body %}
+    
+
+   <!-- [ Layout content ] Start -->
+<div class="layout-content">
+
+<!-- [ content ] Start -->
+<div class="container-fluid flex-grow-1 container-p-y">
+   
+    <div class="card">
+        <div class="card-body">
+    
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped sortable">
+            
+                <thead>
+            <tr>
+               <th>Article</th>
+                <th>Quantite</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quantite_ajoute in quantite_ajoutes %}
+            <tr>
+                <td>{{ quantite_ajoute.article.nom }}</td>
+                <td>{{ quantite_ajoute.quantite }}</td>
+                <td>{{ quantite_ajoute.createdAt ? quantite_ajoute.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_quantite_ajoute_show', {'id': quantite_ajoute.id}) }}">show</a>
+                    <a href="{{ path('app_quantite_ajoute_edit', {'id': quantite_ajoute.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

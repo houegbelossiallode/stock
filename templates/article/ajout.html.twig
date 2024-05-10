@@ -1,0 +1,24 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Enregister un article{% endblock %}
+
+{% block pagetitle %}Nouvel article{% endblock %}
+
+{% block body %}
+
+
+<div class="card">
+<div class="p-4 p-sm-5">
+
+{{ form_start(form) }}
+<div class="row">
+
+<div class="col-6">{{ form_row(form.nom) }}</div>
+<div class="col-6"> {{ form_row(form.quantite) }} </div>
+
+</div>
+
+{{ form_rest(form) }}
+
+<a href="{{path('app_article')}}">Listes des articles</a>
+{% endblock %}

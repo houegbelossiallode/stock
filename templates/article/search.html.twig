@@ -1,0 +1,74 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block pagetitle %}Recherchercher un article{% endblock %}
+
+{% block body %}
+
+<div class="card">
+<div class="p-4 p-sm-5">
+{{ form_start(form) }}
+<div class="input-group">
+  <div class="form-outline" data-mdb-input-init>
+<div> {{ form_widget(form.rechercher) }} </div>
+   
+  
+{{ form_rest(form) }}
+
+
+{% if app.request.method == 'POST' %}
+<!-- [ Layout content ] Start -->
+<div class="layout-content">
+
+<!-- [ content ] Start -->
+<div class="container-fluid flex-grow-1 container-p-y">
+   
+    <div class="card">
+        <div class="card-body">
+    
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped sortable">
+                    <thead>
+                        <tr>
+                        <th style="width: 20%"  >Image</th>
+                        <th style="width: 20%">Code</th>
+                        <th style="width: 20%">Nom</th>
+                        <th style="width: 20%">Prix</th>
+                        <th style="width: 20%">Quantité</th>      
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {% if donnees |length == 0 %}
+                    <h6>Aucun resultats pour la recherche</h6>
+                        {% else %}
+                        <h6>Résultats de la recherche</h6>
+                        {% for donnee in donnees %}
+                            <tr>
+                            <td><img src="{{asset('uploads/article/'~ donnee.image)}}" alt="" width="60%"></td>
+                                <td>{{ donnee.code }}</td>
+                                <td>{{ donnee.nom }}</td>
+                                <td>{{ donnee.prix }}</td>
+                                <td>{{ donnee.quantite }}</td>
+                                
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                        {% endif %}
+
+                    </tbody>
+                
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+</div>
+<!-- [ content ] End -->
+
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+{% block pagetitle %}Listes des Articles{% endblock %}
+{% block body %}
+
+
+<!-- [ Layout content ] Start -->
+<div class="layout-content">
+
+<!-- [ content ] Start -->
+<div class="container-fluid flex-grow-1 container-p-y">
+   
+    <div class="card">
+        <div class="card-body">
+    <td><a href="{{ path('add_client')}}" class="btn btn-sm btn-outline-success mb-2" >Ajouter nouveau client</a></td>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped sortable">
+                
+                    <thead>
+                    
+                        <tr>
+                            <th style="width: 20%; vertical-align: middle;" rowspan="2" class="az" data-defaultsign="nospan" data-defaultsort="asc">
+                                <i class="ion ion-ios-navigate"></i>&nbsp; Nom</th>
+                            
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Prénom</th>
+                            <th style="width: 20%">Téléphone</th>
+                            <th style="width: 20%">UPDATE</th>
+                            <th style="width: 20%">DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for client in clients %}
+                        <tr>
+                            <td>{{client.nom}} </td>
+                            <td>{{client.prenom}} </td>
+                            <td>{{client.telephone}} </td>
+                           <td><a href="{{ path('client_edit', {id : client.id} )}}" class="btn btn-sm btn-outline-success" >Modifier</a></td>
+                           <td><a href="{{ path('client_delete', {id : client.id} )}}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer : '+ {{client.id}})">Supprimer</a></td>
+                        </tr>
+                        
+                       
+                        
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- [ content ] End -->
+
+
+
+
+
+{% endblock %}
+

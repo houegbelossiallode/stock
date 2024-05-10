@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+        }
+         
+        table{
+            font-size:19px;
+            border-collapse: collapse;
+            
+            
+        }
+        
+        thead {
+            
+            font-size:27px;
+            background-color: gray;
+        }
+        th,td
+         {
+            border:2px solid teal;
+            padding:7px;
+            
+        }
+        p{
+        
+        }
+        
+        section{
+            text-align: right;
+            margin-top:-290px;
+        }
+        
+        
+        footer
+        {
+            margin: auto;
+            margin-top: 380px;
+        }
+        </style>
+        
+        
+                
+        
+         <h2>{{site|upper }}</h2>
+         <h5 class="text text-primary">Vous satisfaire nôtre priorité</h5>
+         <aside>
+         <h4 style="text-decoration: underline;">Référence</h4>
+        <hr style="width:40%;">
+        <p>Adresse: Godomey</p>
+        <p>Ville: Abomey-Calavi</p>
+        <p>Téléphone: 91713761</p>
+        
+        </aside>
+        
+        
+        
+        <section>
+            
+        <p>Date {{ 'now'|date('d/m/Y')}}</p>
+        
+        </section>
+        
+        
+        
+        
+        <div class="row">
+        
+        <div class="col-md-6">
+        <!-- [ Layout content ] Start -->
+        <div >
+        
+        <!-- [ content ] Start -->
+        <div >
+           
+            <div >
+                <div >
+            
+                    <div >
+                        <table style="margin-top:140px;">
+                        
+                            <thead>
+                            
+                                
+                                <tr>
+                                    <th style="width: 20%">Nom</th>
+                                    <th style="width: 20%">Prénom</th>
+                                    <th style="width: 20%">Article</th>
+                                    
+                                    <th style="width: 20%">Quantité</th>
+                                    <th style="width: 20%">Date</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for vente in ventes %}
+                                <tr>
+                                    <td>{{vente.client.nom}} </td>
+                                    <td>{{vente.client.prenom}} </td>
+                                    <td>{{vente.article.nom}} </td>
+                                    
+                                    <td>{{vente.quantity}} </td>
+                                    <td>{{vente.createdAt|date('d/m/Y') }} </td>
+                                   
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+              
+        
+        </div>
+        <!-- [ content ] End -->
+        
+        </div>
+    
+        </div>
+        
+        <footer>
+        
+            <p>Si vous avez une question concernant la présente facture, n'hésitez pas à nous contacter</p>
+            <h3>MERCI DE NOUS AVOIR CHOISI</h3>
+        
+        </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

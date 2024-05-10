@@ -1,0 +1,70 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Ventes{% endblock %}
+{% block pagetitle %}Listes des Ventes{% endblock %}
+{% block body %}
+
+{% for flash_error in app.flashes('vente') %}
+<div class="alert alert-success" role="alert">{{ flash_error }}</div>
+{% endfor %}
+
+<!-- [ Layout content ] Start -->
+<div class="layout-content">
+
+<!-- [ content ] Start -->
+<div class="container-fluid flex-grow-1 container-p-y">
+   
+    <div class="card">
+        <div class="card-body">
+    <td><a href="{{ path('add_vente')}}" class="btn btn-sm btn-outline-success mb-2" >Ajouter nouvelle vente</a></td>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped sortable">
+                
+                    <thead>
+                    
+                        <tr>
+                            <th style="width: 20%; vertical-align: middle;" rowspan="2" class="az" data-defaultsign="nospan" data-defaultsort="asc">
+                                <i class="ion ion-ios-navigate"></i>&nbsp;Client</th>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <th style="width: 20%">Article</th>
+                            <th style="width: 20%">Quantité</th>
+                            <th style="width: 20%">Date</th>
+                            <th style="width: 20%">UPDATE</th>
+                            <th style="width: 20%">DELETE</th>
+                            <th style="width: 20%">IMPRIMER</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vente in ventes %}
+                        <tr>
+                            <td>{{vente.client.nom ~ " " ~ vente.client.prenom|capitalize }} </td>
+                            <td>{{vente.article.nom}} </td>
+                            <td>{{vente.quantity}} </td>
+                            <td>{{vente.createdAt|date('d/m/Y') }} </td>
+                               
+                           <td><a href="{{path('vente_edit', {id : vente.id} )}}" class="btn btn-sm btn-outline-success" >Modifier</a></td>
+                           <td><a href="{{path('vente_delete', {id : vente.id} )}}" class="btn btn-sm btn-outline-danger" >Supprimer</a></td>
+                           <td><a href="{{ path('pdf', {id : vente.id} )}}" class="btn btn-sm btn-outline-warning" >PDF</a></td>
+                        </tr>
+                        
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- [ content ] End -->
+
+
+
+
+
+
+{% endblock %}
+
